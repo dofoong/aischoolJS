@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const fruits = ['사과', '딸기', '수박', '참외']
+        let a = 0
+        for (const i in fruits){
+            console.log(`${i}번째 인덱스의 과일은 ${fruits[i]}`)
+        }
+        for (const frk of fruits){
+            console.log(`${a}번째 인덱스의 과일은 ${frk}`)
+            a = a + 1
+        }
+    </script>
+</body>
+</html>
