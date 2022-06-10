@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let wyear = prompt("년도를 입력하세요")
+        if(wyear%4==0&&wyear%100!=0){
+            alert(`${wyear}년은 윤년 입니다`)
+        } else if(wyear%400==0){
+            alert(`${wyear}년은 윤년 입니다`)
+        } else{
+            alert(`${wyear}년은 윤년이 아닙니다`)
+        }
+    </script>
+</body>
+</html>

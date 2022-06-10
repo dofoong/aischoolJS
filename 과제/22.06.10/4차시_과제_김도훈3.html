@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let result = ""
+        let realresult = ""
+        for(let i = 1; i<12; i++){
+            if(i%2==1){
+                for(let j=0;j<i;j++){
+                    result += "*"
+                }
+                let n = 25 + parseInt((result.length/2), 10);
+                let left = result.padStart(n, " ");
+                let right = left.padEnd(50, " ")
+                realresult += right
+                realresult += "\n"
+                result = ""
+                right = ""
+            }
+        }
+        console.log(realresult)
+    </script>
+</body>
+</html>
