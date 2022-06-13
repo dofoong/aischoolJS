@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let star = ""
+        let Fstar = ""
+        let help = 5 
+        let help2 = 9
+        let help3 = 5
+        let downH = 8
+        let downM = 9
+        function starmake(a){
+            let n = 40 + parseInt((a.length/2), 10);
+            let smk = star.padStart(n, " ");
+            Fstar += smk+"\n";
+            star = "";
+            return Fstar;
+        }
+        function MKspace(a){
+            let o = 1 + parseInt(a.length, 10);
+            let spacemk = star.padStart(o, "*");
+            let m = 1 + parseInt(spacemk.length, 10);
+            let smkR = spacemk.padEnd(m, "*");
+            let n = 40 + parseInt((smkR.length/2), 10);
+            let smk2 = smkR.padStart(n, " ");
+            star = ""
+            Fstar += smk2+"\n";
+        }
+        for(let i = 0;i<10;i++){
+            if(i==0){
+                star+="*"
+                starmake(star);
+            }else if(i%2==1){
+                for(let j=0;j<i;j++){
+                    star+=" "
+                }
+                MKspace(star);
+            }  
+        }
+        for(let c = 1;c<29;c++){
+            star+="* "
+            if(c==28){
+                star+="*"
+                starmake(star);
+            }
+        }
+        for(i=0;i<4;i++){
+            if(i!=3){
+                for(let d = 1;d<5;d++){
+                    star+="*"
+                    if(d%2==1){
+                        for(let e = 1;e<(17-(i*6));e++){
+                            star+=" "
+                        }
+                    }else if(d==2){
+                        for(e = 1;e<(14+(2*i));e++){
+                            star+=" "
+                        }
+                    }
+                }
+            }else{
+                star+="*"
+                for(e = 1;e<(14+(2*i));e++){
+                    star+=" "
+                }
+                star+="*"
+            }
+            starmake(star);
+        }
+        for(b=1;b<4;b++){
+            for(i=0;i<2;i++){
+                star+="*"
+                for(j=0;j<help;j++){
+                    star+=" "
+                }
+                if(i==0 && b!=3){
+                    star+="*"
+                    for(m=0;m<help2;m++){
+                        star+=" "
+                    }
+                }
+            }
+            star+="*"
+            starmake(star);
+            help += help3-b
+            help3 = 5
+            help2 -= 6
+        }
+        for(j=0;j<3;j++){
+            for(n=0;n<2;n++){
+                star+="*"
+                for(i=0;i<downH;i++){
+                    star+=" "
+                }
+                if(n==0){
+                    star+="*"
+                    for(m=0;m<downM;m++){
+                        star+=" "
+                    }
+                }
+            }
+            star+="*"
+            starmake(star);
+            downH -= 4-j
+            downM += 10-(j*2)
+        }
+        for(i=0;i<33;i++){
+            star+=" "
+        }
+        MKspace(star)
+        console.log(Fstar)
+    </script>
+</body>
+</html>
