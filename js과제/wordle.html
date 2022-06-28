@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        input{
+            width: 50px;
+            height: 50px;
+            font-size: 40px;
+            text-align: center;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <input class="input">
+    <input class="input">
+    <input class="input">
+    <input class="input">
+    <input class="input">
+    <input class="input">
+    <button>제출</button>
+
+    <script>
+        let 답 = 'wordle';
+        document.querySelector('button').addEventListener('click',
+        function(){
+            let input = document.querySelectorAll('.input');
+
+            for (let i = 0; i < 6; i++){
+                if(input[i].value == 답[i]){
+                   input[i].style.background = 'green';// 1. 위치까지 맞으면 초록칠
+                } else if(답.includes(input[i].value)){
+                   input[i].style.background = 'yellow';// 2. 위치는 안맞지만 답에 존재하는 철자이면 노란칠
+                } else {
+                    input[i].style.background = 'lightgrey'; // 3. 모두 다 아니면 회색칠
+                }
+                input[i].classList.remove('input'); // i는 반복문이 재시작 될때마다 0부터 시작하므로 기존의 인풋클래스를 지워주지 않으면 
+                                                    // 다음번 추가되는 input들의 인덱스값이 5부터 시작하게 되어서 의도한대로 작동하지 않음
+            }
+            let template = `<div>
+                <input class="input">
+                <input class="input">
+                <input class="input">
+                <input class="input">
+                <input class="input">
+                <input class="input">
+            </div>`;
+            document.querySelector('body').insertAdjacentHTML('beforeend', template);
+            // "insertAdjacentHTML"는 이미 사용중인 엘리먼트를 다시 파싱하지 않아서, "innerHtml" 보다 "작업이 덜 드므로 빠르다."
+            //  기본 구조 : element.insertAdjacentHTML(position, text);
+            //  엘리먼트 앞에 넣기 : beforebegin
+            // 엘리먼트 안에 첫번째에 넣기 : afterbegin
+            // 엘리먼트 안에 마지막에 넣기 : beforeend
+            // 엘리먼트 뒤에 넣기 : afterend
+            // https://developer.mozilla.org/ko/docs/Web/API/Element/insertAdjacentHTML
+        })
+    </script>
+</body>
+</html>

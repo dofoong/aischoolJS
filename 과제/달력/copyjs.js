@@ -44,7 +44,7 @@ const renderCalender = () => {
     });
     // 이달의 날자일 경우 class명으로 this가 들어가고 전달이나 다음달일 경우 other가 들어감
 
-    document.querySelector('.dates').innerHTML = dates.join('');
+    document.querySelector('.dates').innerHTML = dates.join(''); 
 
     const today = new Date();
     if (viewMonth === today.getMonth() && viewYear === today.getFullYear()) { // 현재 보고있는 년월이 동일할경우
@@ -80,9 +80,11 @@ const goToday = () => {
 
 // 접속위치가 어디든 한국의 시간을 불러오는 방법
 // 1. UTC(협정 세계시)를 불러온다 
-// let dt = new Date(); > let utc = dt.getTime() + (dt.getTimezoneOffset() * 60 * 1000); 
+// let dt = new Date(); 
+// let utc = dt.getTime() + (dt.getTimezoneOffset() * 60 * 1000); 
 // 겟타임은 현재시간을 밀리초로 받아오며 타임존오프셋은 UTC가 로컬타임과 얼마나 차이나는지 분으로 반환 한국의 경우 9시간이니 -540이 반환됨
 // 즉 타임존 오프셋을 밀리초로 변환 해주기 위해 *60 *1000 을 해주고 겟타임과 더해줄 경우 어느지역 에서도 UTC값이 반환됨
 // 2. 기준인 UTC 와 한국의 시간은 9시간이 차이가 나니 그만큼 더해준다
-// let findKR = 9 * 60 * 60 * 1000; > let KRtime = new Date(utc + findKR);  
+// let findKR = 9 * 60 * 60 * 1000; 
+// let KRtime = new Date(utc + findKR);  
 // 9시간을 밀리초로 변환해준 findKR의 값을 기존에 구해둔 utc에 더하면 한국의 시간이 나오게 된다
